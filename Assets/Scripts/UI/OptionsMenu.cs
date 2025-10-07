@@ -1,4 +1,3 @@
-// OptionsMenu.cs
 
 using TMPro;
 using UnityEngine;
@@ -28,13 +27,13 @@ public class OptionsMenu : MonoBehaviour
 
     public static bool isOptionsPanelActive = false;
 
-    private bool isOpen; // open the list with best scores
-    public Slider effectsVolumeSlider; // Slider dla efektów
-    public Slider musicVolumeSlider; // Slider dla muzyki
+    private bool isOpen; 
+    public Slider effectsVolumeSlider; 
+    public Slider musicVolumeSlider; 
 
     void Start()
     {
-        // Przypisanie wartości z PlayerPrefs do odpowiednich sliderów
+
         if (PlayerPrefs.HasKey("EffectsVolume"))
         {
             float effectsVolume = PlayerPrefs.GetFloat("EffectsVolume");
@@ -49,13 +48,11 @@ public class OptionsMenu : MonoBehaviour
             musicVolumeSlider.value = musicVolume;
         }
 
-        // Inicjalizacja listy najlepszych wyników
         InitHighScores();
     }
 
     void InitHighScores()
 {
-    // Odczytaj najlepsze wyniki z PlayerPrefs i zaktualizuj UI
     for (int i = 0; i < 5; i++)
     {
         if (PlayerPrefs.HasKey("HighScore" + (i + 1)))
@@ -247,7 +244,6 @@ public class OptionsMenu : MonoBehaviour
         effectsVolumeSlider.value = AudioManager.instance.GetEffectsVolume();
     }
 
-    // Metoda do aktualizacji najlepszych wyników w UI
     public void SetHighScoreText(int index, int score)
     {
         switch (index)

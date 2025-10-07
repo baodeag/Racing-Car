@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class TextPulse : MonoBehaviour
 {
-    public List<TMP_Text> texts = new List<TMP_Text>(); // Lista komponentów tekstowych
-    public float pulseSpeed = 1.0f; // Prędkość pulsacji
+    public List<TMP_Text> texts = new List<TMP_Text>(); 
+    public float pulseSpeed = 1.0f; 
 
     private List<Vector3> initialScales = new List<Vector3>();
     private List<bool> pulsingUps = new List<bool>();
@@ -17,11 +17,9 @@ public class TextPulse : MonoBehaviour
         {
             if (text != null)
             {
-                // Zachowaj początkową skalę tekstu
                 initialScales.Add(text.transform.localScale);
                 pulsingUps.Add(true);
 
-                // Rozpocznij pulsację tekstu jako część inicjalizacji.
                 StartCoroutine(PulseText(text));
             }
         }
@@ -36,7 +34,6 @@ public class TextPulse : MonoBehaviour
             float targetScale = pulsingUps[index] ? initialScales[index].x * 1.2f : initialScales[index].x;
             float currentScale = text.transform.localScale.x;
 
-            // Animacja zmiany skali w czasie
             float t = 0;
             while (t < 1)
             {
@@ -47,7 +44,6 @@ public class TextPulse : MonoBehaviour
                 yield return null;
             }
 
-            // Zmiana kierunku pulsacji
             pulsingUps[index] = !pulsingUps[index];
 
             yield return null;

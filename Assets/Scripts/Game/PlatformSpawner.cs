@@ -22,7 +22,7 @@ public class PlatformSpawner : MonoBehaviour
 
     void Start()
     {
-    lastPosition = lastPlatform.position; // Ustaw lastPosition na pozycję lastPlatform na początku
+    lastPosition = lastPlatform.position; 
     StartCoroutine(SpawnPlatforms());
     }
 
@@ -76,7 +76,7 @@ public class PlatformSpawner : MonoBehaviour
             spawnedRarePlatform = true;
         }
         
-        GameObject newPlatform = null; // Deklaracja zmiennej poza blokiem if
+        GameObject newPlatform = null;
 
         if (!spawnedRarePlatform)
         {

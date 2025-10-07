@@ -182,7 +182,7 @@ MonoBehaviour:
   m_text: TAP ANYWHERE TO START
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
-  m_sharedMaterial: {fileID: 3342297820692784743, guid: 39cba144285c640bebe498abfde3fd22, type: 2}
+  m_sharedMaterial: {fileID: -4938263795143650343, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4341,8 +4341,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3, y: 644.29504}
-  m_SizeDelta: {x: 0, y: -1305.4646}
+  m_AnchoredPosition: {x: -3, y: 545.3611}
+  m_SizeDelta: {x: 0, y: -1069.907}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057768862
 MonoBehaviour:
@@ -5069,7 +5069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26, y: 24.000004}
+  m_AnchoredPosition: {x: 26, y: 148}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363278252
@@ -5095,7 +5095,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
-  m_sharedMaterial: {fileID: 3342297820692784743, guid: 39cba144285c640bebe498abfde3fd22, type: 2}
+  m_sharedMaterial: {fileID: -4938263795143650343, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5946,9 +5946,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1057768861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: 168}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 36, y: -80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1537950488
@@ -5974,7 +5974,7 @@ MonoBehaviour:
   m_text: 'YOUR SCORE:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
-  m_sharedMaterial: {fileID: 3342297820692784743, guid: 39cba144285c640bebe498abfde3fd22, type: 2}
+  m_sharedMaterial: {fileID: -4938263795143650343, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8728,10 +8728,10 @@ RectTransform:
   - {fileID: 2113539179}
   m_Father: {fileID: 1057768861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -152}
-  m_SizeDelta: {x: -630, y: -454}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -2, y: 323}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2045622369
 MonoBehaviour:
@@ -9222,7 +9222,7 @@ MonoBehaviour:
   m_text: OK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
-  m_sharedMaterial: {fileID: 3342297820692784743, guid: 39cba144285c640bebe498abfde3fd22, type: 2}
+  m_sharedMaterial: {fileID: -4938263795143650343, guid: 39f3490578c3143419c572afb2a8db80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -8,18 +8,17 @@ public class CarController : MonoBehaviour
     bool movingLeft = true;
     bool firstInput = true;
 
-    private float originalSpeed; // Początkowa prędkość samochodu
-    private float currentSpeed; // Aktualna prędkość samochodu
-    private bool speedingUp; // Czy samochód przyspiesza
-    private bool hasFallen = false; // Zmienna flagowa informująca, czy spadnięcie już miało miejsce
+    private float originalSpeed; 
+    private float currentSpeed; 
+    private bool speedingUp; 
+    private bool hasFallen = false; 
 
-    // Zdarzenie, które zostanie wywołane, gdy samochód wejdzie w obszar obiektu z tagiem "Star"
     public delegate void StarCollected();
     public static event StarCollected OnStarCollected;
 
     void Start()
     {
-        originalSpeed = MoveSpeed; // Zapisz początkową prędkość
+        originalSpeed = MoveSpeed;
     }
 
     void Update()
@@ -30,35 +29,33 @@ public class CarController : MonoBehaviour
             CheckInput();
         }
 
-        // checking if the car is outside the platform - so game over can be triggered
         if (!hasFallen && transform.position.y <= -2)
         {
 
-        hasFallen = true; // Ustaw zmienną hasFallen na true, aby oznaczyć, że spadnięcie już nastąpiło
+        hasFallen = true; 
         GameManager.instance.GameOver();
 
         }
 
         if (speedingUp)
         {
-            currentSpeed -= Time.deltaTime * 4f; // 4f to szybkość spadku prędkości
+            currentSpeed -= Time.deltaTime * 4f; 
             MoveSpeed = currentSpeed;
 
             if (currentSpeed <= originalSpeed)
             {
                 speedingUp = false;
-                MoveSpeed = originalSpeed; // Przywróć początkową prędkość
+                MoveSpeed = originalSpeed; 
             }
         }
     }
 
     void Move()
     {
-        // Przesunięcie samochodu zgodnie z prędkością
         transform.position += transform.forward * MoveSpeed * Time.deltaTime;
     }
 
-    private bool IsPointerOverUIObject() // when clicking on an option does not change car direction
+    private bool IsPointerOverUIObject() 
 {
     PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
     eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -71,7 +68,7 @@ public class CarController : MonoBehaviour
     void CheckInput()
 {   
    
-    if (OptionsMenu.isOptionsPanelActive) return; // if OptionPanel is active, you can not change car direction when clicking
+    if (OptionsMenu.isOptionsPanelActive) return; 
     if (firstInput)
     {
         firstInput = false;
@@ -98,7 +95,6 @@ public class CarController : MonoBehaviour
         }
     }
 
-    // Funkcja do przyspieszania samochodu
     public void SpeedUp(float speedBoost)
     {
         speedingUp = true;
@@ -109,20 +105,16 @@ public class CarController : MonoBehaviour
     {
         if (other.CompareTag("Star"))
         {
-            // Przyspiesz samochód o 5 jednostek na 5 sekund
-            SpeedUp(5f);
-
-            // Usuń obiekt "Star"
+            SpeedUp(0f);
             Destroy(other.gameObject);
 
             AudioManager.instance.PlayCoinSound();
             
-
-            // Opcjonalnie: Wywołaj zdarzenie OnStarCollected
             if (OnStarCollected != null)
             {
                 OnStarCollected();
             }
         }
+        
     }
 }

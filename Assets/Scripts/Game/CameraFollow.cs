@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Transform target; // Docelowy obiekt, którym ma być śledzony (przypisywany dynamicznie).
+    private Transform target; 
 
-    public float smoothValue; // Jak płynnie ma podążać kamera
+    public float smoothValue; 
 
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (target != null && transform.position.y >= 0)

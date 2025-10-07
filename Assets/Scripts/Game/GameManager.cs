@@ -9,17 +9,16 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public TMP_Text Points; // TextMeshPro komponent
+    public TMP_Text Points; 
 
     public GameObject StartPlatforms;
     public GameObject ScorePanel;
-    public GameObject PlayConfirmPanel; // The Panel informing a player that he has to tap on the screen to start the game
+    public GameObject PlayConfirmPanel; 
     public bool gameStarted;
     public Button scoreListButton;
     public int score = 0;
-    private bool canIncreaseScore = true; // Dodana zmienna do kontroli zwiększania punktacji
+    private bool canIncreaseScore = true; 
 
-    // Zmienna do przechowywania najlepszych wyników
     private int[] highScores = new int[5];
 
     void Awake()
@@ -32,7 +31,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Odczytaj najlepsze wyniki z PlayerPrefs
         for (int i = 0; i < highScores.Length; i++)
         {
             if (PlayerPrefs.HasKey("HighScore" + (i + 1)))
@@ -41,7 +39,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                highScores[i] = 0; // Domyślna wartość, jeśli wynik nie jest jeszcze zapisany
+                highScores[i] = 0; 
             }
         }
     }
@@ -88,7 +86,6 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayCarStartSound();
         AudioManager.instance.Invoke("PlayCarDrivingSound", 8f);
 
-        // Wyłącz przycisk z OptionsMenu
         scoreListButton.interactable = false;
     }
 
@@ -98,26 +95,21 @@ public class GameManager : MonoBehaviour
         VehicleManager.instance.PlatformSpawner.SetActive(false);
         ScorePanel.SetActive(true);
         StartPlatforms.SetActive(false);
-        StopAllCoroutines(); // Przerwij wszystkie korutyny
+        StopAllCoroutines();
 
-        // Zatrzymaj dźwięk samochodu
         AudioManager.instance.StopCarDrivingSound();
         AudioManager.instance.StopCarStartSound();
-        // Odtwórz dźwięk Game Over
         AudioManager.instance.PlayGameOverSound();
 
-        // Sprawdź, czy uzyskano nowy najlepszy wynik i zapisz go
         for (int i = 0; i < highScores.Length; i++)
         {
             if (score > highScores[i])
             {
-                // Przesuń inne wyniki w dół
                 for (int j = highScores.Length - 1; j > i; j--)
                 {
                     highScores[j] = highScores[j - 1];
                 }
                 highScores[i] = score;
-                // Zapisz najlepsze wyniki do PlayerPrefs
                 for (int j = 0; j < highScores.Length; j++)
                 {
                     PlayerPrefs.SetInt("HighScore" + (j + 1), highScores[j]);

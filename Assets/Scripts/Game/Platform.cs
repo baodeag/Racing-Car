@@ -6,16 +6,16 @@ public class Platform : MonoBehaviour
 {
     private bool isFalling = false;
     private Rigidbody rb;
-    private PlatformSpawner platformSpawner; // Referencja do skryptu PlatformSpawner.
+    private PlatformSpawner platformSpawner;
 
-    public float vanishDelay = 3.0f; // Czas opóźnienia przed zniknięciem platformy po przekroczeniu przez gracza.
+    public float vanishDelay = 3.0f;
     
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true; // Ustaw platformę jako kinematyczną na początku
-        platformSpawner = FindObjectOfType<PlatformSpawner>(); // Znajdź PlatformSpawner w scenie.
+        rb.isKinematic = true; 
+        platformSpawner = FindObjectOfType<PlatformSpawner>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -32,7 +32,6 @@ public class Platform : MonoBehaviour
     if (other.CompareTag("Player"))
     {
         StartCoroutine(VanishAfterDelay());
-        // Odtwórz dźwięk monet
     }
 }
 
@@ -45,10 +44,10 @@ public class Platform : MonoBehaviour
 
     private IEnumerator FallPlatform()
     {   
-        yield return new WaitForSeconds(0.5f); // Poczekaj 0.2 sekundy przed spadnięciem
-        rb.isKinematic = false; // Ustaw platformę jako niekinematyczną
-        rb.constraints = RigidbodyConstraints.FreezeRotation; // Zablokuj rotację platformy
-        rb.velocity = new Vector3(0f, -5f, 0f); // Ustaw prędkość spadania w kierunku "dół"
+        yield return new WaitForSeconds(0.5f);
+        rb.isKinematic = false; 
+        rb.constraints = RigidbodyConstraints.FreezeRotation; 
+        rb.velocity = new Vector3(0f, -5f, 0f); 
         
     }
 
@@ -56,7 +55,7 @@ public class Platform : MonoBehaviour
 {
     if (platformSpawner != null)
     {
-        platformSpawner.DecreaseGeneratedPlatforms(); // Zmniejsz licznik wygenerowanych platform przed zniszczeniem.
+        platformSpawner.DecreaseGeneratedPlatforms(); 
     }
 
     Destroy(gameObject);
